@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix="!!", intents=intents)
 
 # Fonction pour obtenir les serveurs via l'API Flask
 def get_user_guilds():
-    url = "https://ton-site.onrender.com/servers"  # L'URL de ton backend Flask
+    url = "https://ton-site.onrender.com/callback"  # L'URL de ton backend Flask
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()['guilds']
