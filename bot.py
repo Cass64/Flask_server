@@ -5,7 +5,7 @@ import json
 import requests
 
 # Récupérer le token depuis Render
-TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+TOKEN = os.getenv("TOKEN_BOT_DISCORD")
 
 # Création du bot
 intents = discord.Intents.default()
