@@ -12,6 +12,19 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!!", intents=intents)
 
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Le bot est en ligne 🚀"
+
+def run_flask():
+    app.run(host="0.0.0.0", port=10000)
+
+if __name__ == "__main__":
+    threading.Thread(target=run_flask).start()  # Démarrer Flask en arrière-plan
+    bot.run(TOKEN)  # Lancer le bot Discord
+    
 # Fonction pour obtenir les serveurs via l'API Flask
 def get_user_guilds():
     url = "https://casseco-6sa8.onrender.com"  # L'URL de ton backend Flask
