@@ -76,4 +76,5 @@ def get_user():
     return jsonify(response.json())
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)  # Render va utiliser ce port automatiquement
+   app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+
