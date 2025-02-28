@@ -4,6 +4,7 @@ import os
 import json
 import requests
 from flask import Flask
+import threading
 
 # Récupérer le token depuis Render
 TOKEN = os.getenv("TOKEN_BOT_DISCORD")
