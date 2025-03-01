@@ -75,6 +75,24 @@ def get_user():
 
     return jsonify(response.json())
 
+import os
+
+print("Démarrage du serveur Flask...")  
+print(f"PORT utilisé : {os.getenv('PORT', 10000)}")  
+print(f"Client ID : {os.getenv('DISCORD_CLIENT_ID')}")  
+print(f"Client Secret : {os.getenv('DISCORD_CLIENT_SECRET')}")  
+
 if __name__ == "__main__":
-   app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+
+import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+result = sock.connect_ex(("127.0.0.1", int(os.getenv("PORT", 10000))))
+
+if result == 0:
+    print("✅ Flask écoute bien sur le port 10000")
+else:
+    print("❌ Flask ne tourne pas sur le port 10000")
+
 
