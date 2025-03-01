@@ -55,7 +55,7 @@ def get_user_guilds():
     guilds = response.json()
 
     # Filtrer les serveurs où l'utilisateur a des permissions d'administrateur
-    admin_guilds = [guild for guild in guilds if "administrator" in guild.get("permissions", [])]
+    admin_guilds = [guild for guild in guilds if int(guild["permissions"]) & 0x8]
 
     return jsonify({"guilds": admin_guilds})
 
