@@ -57,7 +57,6 @@ async def on_ready():
 # Lancer Flask en parallèle du bot
 if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()  # Lancer Flask en arrière-plan
-    bot.run(TOKEN)  # Lancer le bot Discord
 
 
 bot.run(TOKEN)
