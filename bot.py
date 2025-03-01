@@ -13,19 +13,6 @@ TOKEN = os.getenv("TOKEN_BOT_DISCORD")
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="!!", intents=intents)
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Le bot est en ligne 🚀"
-
-def run_flask():
-    app.run(host="0.0.0.0", port=10000)
-
-if __name__ == "__main__":
-    threading.Thread(target=run_flask).start()  # Démarrer Flask en arrière-plan
-    bot.run(TOKEN)  # Lancer le bot Discord
     
 # Fonction pour obtenir les serveurs via l'API Flask
 def get_user_guilds():
@@ -35,13 +22,14 @@ def get_user_guilds():
         return response.json()['guilds']
     return []
 
-# Charger les commandes du serveur depuis JSON
+
 def load_commands(server_id):
-    try:
-        with open(f'commands/{server_id}.json', 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
+    file_path = f'commands/{server_id}.json'
+    if not os.path.exists(file_path):
+        with open(file_path, 'w') as f:
+            json.dump({}, f)
+    with open(file_path, 'r') as f:
+        return json.load(f)
 
 # Exécuter les commandes personnalisées
 @bot.event
