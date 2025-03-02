@@ -27,7 +27,9 @@ def auth_callback():
 
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     response = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
-
+    
+    print("Réponse Discord:", response.status_code, response.text)  # Ajout pour debug
+    
     if response.status_code != 200:
         return jsonify({"error": "Failed to get token"}), 400
 
