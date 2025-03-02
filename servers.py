@@ -67,7 +67,7 @@ def get_user():
 
     return jsonify(response.json())
 
-# Code pour récupérer le port et démarrer Flask
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 10000))  # On récupère le port depuis l'environnement, ou 10000 par défaut
-    app.run(host="0.0.0.0", port=port)  # On fait tourner Flask sur toutes les interfaces du serveur
+    port = int(os.getenv("PORT", 5000))  # Utilise le port attribué par Render ou 5000 par défaut
+    app.run(host="0.0.0.0", port=port)  # Assure-toi que Flask tourne sur toutes les interfaces
+
