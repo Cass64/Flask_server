@@ -66,3 +66,8 @@ def get_user():
         return jsonify({"error": "Failed to fetch user data"}), 400
 
     return jsonify(response.json())
+
+# Code pour récupérer le port et démarrer Flask
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 10000))  # On récupère le port depuis l'environnement, ou 10000 par défaut
+    app.run(host="0.0.0.0", port=port)  # On fait tourner Flask sur toutes les interfaces du serveur
