@@ -66,8 +66,3 @@ def get_user():
         return jsonify({"error": "Failed to fetch user data"}), 400
 
     return jsonify(response.json())
-
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
-
