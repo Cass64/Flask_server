@@ -7,7 +7,7 @@ app = Flask(__name__)
 # ⚠️ Ces variables doivent être dans les variables d'environnement sur Render
 CLIENT_ID = os.getenv("DISCORD_CLIENT_ID")
 CLIENT_SECRET = os.getenv("DISCORD_CLIENT_SECRET")
-REDIRECT_URI = "https://dashboard-l77g.onrender.com/callback.html"  
+REDIRECT_URI = "https://casseco-6sa8.onrender.com/auth/callback"  
 
 @app.route("/auth/callback")
 def auth_callback():
