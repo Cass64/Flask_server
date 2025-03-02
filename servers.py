@@ -36,7 +36,7 @@ def auth_callback():
     access_token = token_data.get("access_token")
     
     # Redirection vers /servers avec le token d'accès
-    return redirect(f"/servers?access_token={access_token}")
+    return jsonify({"access_token": access_token})
 
 @app.route("/servers", methods=["GET"])
 def get_user_guilds():
